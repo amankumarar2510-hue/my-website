@@ -1,219 +1,73 @@
-<h1>Welcome to My Website!</h1>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>My First Website</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            min-height: 100vh;
-            color: white;
-            background: linear-gradient(135deg, #0f172a, #1d4ed8, #06b6d4);
-        }
-
-        header {
-            background: rgba(15, 23, 42, 0.9);
-            padding: 22px 15px;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        header h2 {
-            font-size: 26px;
-            letter-spacing: 1px;
-        }
-
-        nav {
-            padding: 14px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.15);
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 12px;
-            font-size: 15px;
-        }
-
-        nav a:hover {
-            color: #bae6fd;
-        }
-
-        main {
-            min-height: 70vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .hero {
-            width: 100%;
-            max-width: 720px;
-            padding: 45px 25px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 22px;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero h1 {
-            font-size: clamp(30px, 6vw, 48px);
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 17px;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 14px 26px;
-            background: #ffffff;
-            color: #1d4ed8;
-            border: none;
-            border-radius: 9px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .button:hover {
-            background: #dbeafe;
-            transform: translateY(-2px);
-        }
-
-        #message {
-            margin-top: 22px;
-            font-weight: bold;
-            overflow-wrap: anywhere;
-        }
-
-        .features {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 18px;
-            padding: 10px 20px 40px;
-        }
-
-        .feature {
-            flex: 1 1 200px;
-            max-width: 300px;
-            padding: 22px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.12);
-            border-radius: 14px;
-        }
-
-        .feature h3 {
-            margin-bottom: 10px;
-        }
-
-        .feature p {
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        footer {
-            padding: 22px 15px;
-            text-align: center;
-            background: rgba(15, 23, 42, 0.8);
-            font-size: 14px;
-        }
-
-        @media (max-width: 480px) {
-            nav a {
-                margin: 0 7px;
-                font-size: 13px;
-            }
-
-            .hero {
-                padding: 35px 18px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My AI Website</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #101827, #164e63);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 35px 25px;
+      border-radius: 18px;
+      width: 85%;
+      max-width: 480px;
+      box-sizing: border-box;
+    }
+    h1 { color: #67e8f9; }
+    input, button {
+      padding: 12px;
+      margin: 7px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    input { width: 90%; }
+    button {
+      background: #06b6d4;
+      color: #071827;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #result { margin-top: 18px; line-height: 1.6; }
+  </style>
 </head>
-
 <body>
+  <main class="card">
+    <h1>My AI Website</h1>
+    <p>Welcome to my cloud-based AI model project.</p>
+    <p>Enter a message to test the demo.</p>
+    <input id="message" type="text" placeholder="Type something...">
+    <br>
+    <button onclick="predict()">Run Demo</button>
+    <div id="result"></div>
+  </main>
 
-    <header>
-        <h2>My Website</h2>
-    </header>
+  <script>
+    function predict() {
+      const message = document.getElementById("message").value.trim();
+      const result = document.getElementById("result");
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#features">Features</a>
-        <a href="#about">About</a>
-    </nav>
+      if (!message) {
+        result.textContent = "Please enter a message first.";
+        return;
+      }
 
-    <main id="home">
-        <section class="hero">
-            <h1>Welcome to My Website!</h1>
-
-            <p>
-                Hello everyone! This is my first website,
-                created using HTML, CSS, JavaScript and GitHub Pages.
-                Explore my website and try the interactive button below.
-            </p>
-
-            <button class="button" onclick="showMessage()">
-                Click Me
-            </button>
-
-            <p id="message" aria-live="polite"></p>
-        </section>
-    </main>
-
-    <section class="features" id="features">
-        <article class="feature">
-            <h3>HTML</h3>
-            <p>HTML provides the structure and content of this website.</p>
-        </article>
-
-        <article class="feature">
-            <h3>CSS</h3>
-            <p>CSS creates the colors, layout, and responsive design.</p>
-        </article>
-
-        <article class="feature">
-            <h3>JavaScript</h3>
-            <p>JavaScript makes the button interactive.</p>
-        </article>
-    </section>
-
-    <footer id="about">
-        <p>Created by Me | Hosted free with GitHub Pages</p>
-        <p>&copy; <span id="year"></span> My Website</p>
-    </footer>
-
-    <script>
-        function showMessage() {
-            const message = document.getElementById("message");
-
-            message.textContent =
-                "Success! Your website is working correctly.";
-        }
-
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
-    </script>
-
+      result.textContent =
+        "Demo prediction: Your input contains " +
+        message.length + " characters.";
+    }
+  </script>
 </body>
 </html>
-
