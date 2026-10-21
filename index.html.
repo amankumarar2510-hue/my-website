@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My First Website</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #10172a, #174ea6);
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+    }
+    header {
+      padding: 22px;
+      background: #0b1020;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    main {
+      padding: 65px 20px;
+    }
+    h1 {
+      font-size: 36px;
+    }
+    p {
+      line-height: 1.7;
+    }
+    button {
+      background: #60a5fa;
+      color: #071326;
+      padding: 14px 24px;
+      border: 0;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    footer {
+      padding: 20px;
+      color: #dbeafe;
+    }
+  </style>
+</head>
+<body>
+  <header>My Website</header>
+
+  <main>
+    <h1>Welcome to My Website!</h1>
+    <p>This is my first website created using HTML and GitHub Pages.</p>
+    <button onclick="showMessage()">Click Me</button>
+    <p id="message"></p>
+  </main>
+
+  <footer>Created by Me | Powered by GitHub Pages</footer>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").textContent =
+        "Hello! Your website is working successfully.";
+    }
+  </script>
+</body>
+</html>
