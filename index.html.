@@ -2,65 +2,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Website</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #10172a, #174ea6);
-      color: white;
-      text-align: center;
-      min-height: 100vh;
-    }
-    header {
-      padding: 22px;
-      background: #0b1020;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    main {
-      padding: 65px 20px;
-    }
-    h1 {
-      font-size: 36px;
-    }
-    p {
-      line-height: 1.7;
-    }
-    button {
-      background: #60a5fa;
-      color: #071326;
-      padding: 14px 24px;
-      border: 0;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    footer {
-      padding: 20px;
-      color: #dbeafe;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My First Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            color: white;
+            background: linear-gradient(135deg, #0f172a, #1d4ed8, #06b6d4);
+        }
+
+        header {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 22px 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        header h2 {
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            padding: 14px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #bae6fd;
+        }
+
+        main {
+            min-height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero {
+            width: 100%;
+            max-width: 720px;
+            padding: 45px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 22px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 6vw, 48px);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 26px;
+            background: #ffffff;
+            color: #1d4ed8;
+            border: none;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .button:hover {
+            background: #dbeafe;
+            transform: translateY(-2px);
+        }
+
+        #message {
+            margin-top: 22px;
+            font-weight: bold;
+            overflow-wrap: anywhere;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            padding: 10px 20px 40px;
+        }
+
+        .feature {
+            flex: 1 1 200px;
+            max-width: 300px;
+            padding: 22px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        footer {
+            padding: 22px 15px;
+            text-align: center;
+            background: rgba(15, 23, 42, 0.8);
+            font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 35px 18px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header>My Website</header>
 
-  <main>
-    <h1>Welcome to My Website!</h1>
-    <p>This is my first website created using HTML and GitHub Pages.</p>
-    <button onclick="showMessage()">Click Me</button>
-    <p id="message"></p>
-  </main>
+    <header>
+        <h2>My Website</h2>
+    </header>
 
-  <footer>Created by Me | Powered by GitHub Pages</footer>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+    </nav>
 
-  <script>
-    function showMessage() {
-      document.getElementById("message").textContent =
-        "Hello! Your website is working successfully.";
-    }
-  </script>
+    <main id="home">
+        <section class="hero">
+            <h1>Welcome to My Website!</h1>
+
+            <p>
+                Hello everyone! This is my first website,
+                created using HTML, CSS, JavaScript and GitHub Pages.
+                Explore my website and try the interactive button below.
+            </p>
+
+            <button class="button" onclick="showMessage()">
+                Click Me
+            </button>
+
+            <p id="message" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <section class="features" id="features">
+        <article class="feature">
+            <h3>HTML</h3>
+            <p>HTML provides the structure and content of this website.</p>
+        </article>
+
+        <article class="feature">
+            <h3>CSS</h3>
+            <p>CSS creates the colors, layout, and responsive design.</p>
+        </article>
+
+        <article class="feature">
+            <h3>JavaScript</h3>
+            <p>JavaScript makes the button interactive.</p>
+        </article>
+    </section>
+
+    <footer id="about">
+        <p>Created by Me | Hosted free with GitHub Pages</p>
+        <p>&copy; <span id="year"></span> My Website</p>
+    </footer>
+
+    <script>
+        function showMessage() {
+            const message = document.getElementById("message");
+
+            message.textContent =
+                "Success! Your website is working correctly.";
+        }
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
 </body>
 </html>
