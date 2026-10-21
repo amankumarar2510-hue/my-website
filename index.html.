@@ -4,69 +4,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My AI Website</title>
+  <title>My AI Project</title>
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #101827, #164e63);
-      color: white;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: #101827;
+      color: white;
+      font-family: Arial, sans-serif;
     }
-    .card {
-      background: rgba(255,255,255,0.1);
-      padding: 35px 25px;
+    main {
+      width: 100%;
+      max-width: 500px;
+      padding: 35px 24px;
       border-radius: 18px;
-      width: 85%;
-      max-width: 480px;
-      box-sizing: border-box;
+      text-align: center;
+      background: #1e293b;
+      border: 1px solid #38bdf8;
     }
-    h1 { color: #67e8f9; }
+    h1 { color: #38bdf8; }
     input, button {
       padding: 12px;
-      margin: 7px 0;
-      border: none;
+      margin: 8px 0;
       border-radius: 8px;
       font-size: 16px;
     }
-    input { width: 90%; }
+    input { width: 100%; border: 1px solid #94a3b8; }
     button {
-      background: #06b6d4;
-      color: #071827;
+      border: 0;
+      background: #38bdf8;
+      color: #082f49;
       cursor: pointer;
       font-weight: bold;
     }
-    #result { margin-top: 18px; line-height: 1.6; }
+    #result { margin-top: 18px; overflow-wrap: anywhere; }
   </style>
 </head>
 <body>
-  <main class="card">
-    <h1>My AI Website</h1>
-    <p>Welcome to my cloud-based AI model project.</p>
-    <p>Enter a message to test the demo.</p>
-    <input id="message" type="text" placeholder="Type something...">
+  <main>
+    <h1>My AI Project</h1>
+    <p>Welcome to my cloud-based AI model demonstration.</p>
+    <p>Enter text below to test the demo.</p>
+    <input id="userInput" placeholder="Enter your text">
     <br>
-    <button onclick="predict()">Run Demo</button>
-    <div id="result"></div>
+    <button onclick="runDemo()">Run Demo</button>
+    <p id="result">Your result will appear here.</p>
   </main>
 
   <script>
-    function predict() {
-      const message = document.getElementById("message").value.trim();
+    function runDemo() {
+      const input = document.getElementById("userInput").value.trim();
       const result = document.getElementById("result");
 
-      if (!message) {
-        result.textContent = "Please enter a message first.";
+      if (!input) {
+        result.textContent = "Please enter some text.";
         return;
       }
 
       result.textContent =
-        "Demo prediction: Your input contains " +
-        message.length + " characters.";
+        "Demo result: Your text contains " + input.length + " characters.";
     }
   </script>
 </body>
